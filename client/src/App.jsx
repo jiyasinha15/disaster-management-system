@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import VolunteerDashboard from "./pages/VolunteerDashboard";
+import VolunteerDashboard from "./pages/volunteer/VolunteerDashboard";
+import VolunteerTasks from "./pages/volunteer/VolunteerTasks";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import LiveMap from "./pages/LiveMap";
 import SOS from "./pages/SOS";
@@ -61,6 +62,15 @@ function App() {
           element={
             <ProtectedRoute>
               <VolunteerDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/volunteer-tasks"
+          element={
+            <ProtectedRoute>
+              <VolunteerTasks />
             </ProtectedRoute>
           }
         />
