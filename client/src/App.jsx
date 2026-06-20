@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import AdminLogin from "./pages/AdminLogin";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import VolunteerDashboard from "./pages/VolunteerDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import LiveMap from "./pages/LiveMap";
 import SOS from "./pages/SOS";
 import Shelters from "./pages/Shelters";
 import Alerts from "./pages/Alerts";
 import Volunteers from "./pages/Volunteers";
 import Profile from "./pages/Profile";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminLogin from "./pages/admin/AdminLogin";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
