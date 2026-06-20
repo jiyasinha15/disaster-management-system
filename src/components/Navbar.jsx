@@ -9,7 +9,8 @@ const Navbar = () => {
         🚨 Disaster Management
       </h1>
 
-      <div className="space-x-6">
+      <div className="flex items-center gap-6">
+
         <Link
           to="/"
           className="hover:text-gray-200 dark:hover:text-gray-300 transition"
@@ -37,6 +38,14 @@ const Navbar = () => {
         >
           Dashboard
         </Link>
+
+        <Link
+          to="/admin-login"
+          className="bg-white text-red-600 px-3 py-1 rounded-lg font-semibold hover:bg-gray-100 transition"
+        >
+          Admin Login
+        </Link>
+
       </div>
 
       <div className="flex items-center gap-4 mr-24">

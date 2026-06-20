@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -26,60 +26,49 @@ const Login = () => {
         formData
       );
 
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem(
-        "user",
-        JSON.stringify(res.data.user)
-      );
-
-      alert("Login Successful");
-      if(res.data.user.role === "admin"){
-        navigate("/admin");
-      } else if(res.data.user.role === "volunteer"){
-      navigate("/volunteer-dashboard");
-      } else {
-        navigate("/dashboard");
+      if (res.data.user.role !== "admin") {
+        alert("Access denied. Admin account required.");
+        return;
       }
+
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      alert("Admin Login Successful");
+      navigate("/admin");
     } catch (error) {
-      alert(
-        error.response?.data?.message ||
-        "Login Failed"
-      );
+      alert(error.response?.data?.message || "Admin Login Failed");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4">
       <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl overflow-hidden max-w-4xl w-full grid md:grid-cols-2">
-
-        <div className="bg-red-600 text-white p-10 flex flex-col justify-center">
-          <h1 className="text-4xl font-bold mb-4">
-            Welcome Back!
-          </h1>
+        <div className="bg-gray-900 text-white p-10 flex flex-col justify-center">
+          <h1 className="text-4xl font-bold mb-4">Admin Access</h1>
 
           <p className="text-lg mb-6">
-            Login to access emergency alerts, SOS services,
-            shelter locations, and volunteer support.
+            Login to monitor SOS requests, manage alerts, shelters and disaster
+            response resources.
           </p>
 
           <ul className="space-y-3">
-            <li>Real-time Disaster Alerts</li>
-            <li>SOS Emergency Assistance</li>
-            <li>Shelter Locator</li>
-            <li>Volunteer Coordination</li>
+            <li>🆘 SOS Request Monitoring</li>
+            <li>📢 Alert Management</li>
+            <li>🏠 Shelter Coordination</li>
+            <li>📊 Reports Overview</li>
           </ul>
         </div>
 
         <div className="p-10">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
-            Login
+            Admin Login
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-
             <div>
               <label className="block text-gray-700 mb-2 dark:text-gray-300">
-                Email Address
+                Admin Email
               </label>
 
               <input
@@ -87,7 +76,7 @@ const Login = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="Enter admin email"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
                 required
               />
@@ -103,7 +92,7 @@ const Login = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="Enter your password"
+                placeholder="Enter password"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
                 required
               />
@@ -111,37 +100,22 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700"
+              className="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-black transition"
             >
-              Login
+              Login as Admin
             </button>
-
           </form>
 
-          <p className="text-center mt-6 text-gray-600">
-            Don't have an account?{" "}
-            <Link
-              to="/register"
-              className="text-red-600 font-semibold"
-            >
-              Register
+          <p className="text-center mt-6 text-gray-600 dark:text-gray-300">
+            User login?{" "}
+            <Link to="/login" className="text-red-600 font-semibold">
+              Login here
             </Link>
           </p>
-
-          <div className="text-center mt-4">
-            <Link
-              to="/"
-              className="text-blue-600"
-            >
-              Back to Home
-            </Link>
-          </div>
-
         </div>
-
       </div>
     </div>
   );
 };
 
-export default Login;
+export default AdminLogin;
