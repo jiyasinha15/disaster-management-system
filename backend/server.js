@@ -40,6 +40,32 @@ app.get("/test-db", (req, res) => {
   });
 });
 
+// Dashboard Stats
+app.get("/api/dashboard/stats", (req, res) => {
+  const stats = {};
+
+  db.query("SELECT COUNT(*) AS totalAlerts FROM alerts", (err, alerts) => {
+    if (err) return res.status(500).json(err);
+
+    stats.alerts = alerts[0].totalAlerts;
+
+    db.query("SELECT COUNT(*) AS totalShelters FROM shelters", (err, shelters) => {
+      if (err) return res.status(500).json(err);
+
+      stats.shelters = shelters[0].totalShelters;
+
+      db.query("SELECT COUNT(*) AS totalSOS FROM sos_requests", (err, sos) => {
+        if (err) return res.status(500).json(err);
+
+        stats.sos = sos[0].totalSOS;
+        stats.volunteers = 150;
+
+        res.json(stats);
+      });
+    });
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

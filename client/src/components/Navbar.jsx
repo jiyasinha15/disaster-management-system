@@ -39,7 +39,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 mr-24">
         <NotificationBell />
       </div>
 

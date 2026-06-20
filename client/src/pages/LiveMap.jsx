@@ -51,10 +51,10 @@ const LiveMap = () => {
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
 
           <MapContainer
-            center={[25.5941, 85.1376]}
-            zoom={7}
+            center={[28.55, 77.25]}
+            zoom={10}
             scrollWheelZoom={true}
-            className="h-[600px] w-full rounded-lg z-0"
+            className="h-[600px] w-full rounded-lg"
           >
             {/* Light Mode Map */}
             {!document.documentElement.classList.contains("dark") ? (

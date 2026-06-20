@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import StatCard from "../components/StatCard";
 import AlertList from "../components/AlertList";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     alerts: 0,
     shelters: 0,
@@ -44,10 +46,17 @@ const Dashboard = () => {
             🗺️ Live Disaster Map
           </h2>
 
-          <div className="bg-gray-200 dark:bg-gray-700 h-80 rounded-lg flex items-center justify-center">
+          <div className="bg-gray-200 dark:bg-gray-700 h-80 rounded-lg flex flex-col items-center justify-center gap-4">
             <p className="text-gray-500 dark:text-gray-300">
-              Map Integration Coming Next...
+              Live map is available on a separate page for better performance.
             </p>
+            <button
+            type="button"
+              onClick={() => navigate("/map")}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md hover:shadow-xl"
+            >
+              🗺️ View Live Map
+            </button>
           </div>
         </div>
 

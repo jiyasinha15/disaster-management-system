@@ -49,6 +49,7 @@ return ( <BrowserRouter>
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
+    <Route path="/map" element={<LiveMap />} />
 
     {/* Protected Routes */}
     <Route
