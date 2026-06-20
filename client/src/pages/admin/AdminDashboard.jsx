@@ -9,14 +9,26 @@ const alerts = [
   {
     id: 1,
     type: "Flood Warning",
-    area: "North Bihar",
+    area: "Noida, Uttar Pradesh",
     severity: "High",
   },
   {
     id: 2,
-    type: "Heavy Rainfall",
-    area: "Patna",
+    type: "Fire Alert",
+    area: "Ghaziabad, Uttar Pradesh",
     severity: "Medium",
+  },
+  {
+    id: 3,
+    type: "Earthquake Advisory",
+    area: "Gurugram, Haryana",
+    severity: "Low",
+  },
+  {
+    id: 2,
+    type: "Medical Emergency",
+    area: "Faridabad, Haryana",
+    severity: "High",
   },
 ];
 
@@ -64,7 +76,7 @@ const AdminDashboard = () => {
             </h3>
 
             <p className="text-4xl font-bold text-red-600 dark:text-red-400 mt-2">
-              12
+              {alerts.length}
             </p>
           </div>
 
