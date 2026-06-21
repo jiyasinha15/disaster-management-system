@@ -9,9 +9,10 @@ const Sidebar = () => {
   if (user?.role === "admin") {
     navItems = [
       { path: "/admin", label: "⚙️ Admin Dashboard" },
-      { path: "/alerts", label: "📢 Manage Alerts" },
-      { path: "/shelters", label: "🏕️ Manage Shelters" },
-      { path: "/volunteers", label: "🤝 Manage Volunteers" },
+      { path: "/manage-alerts", label: "📢 Manage Alerts" },
+      { path: "/manage-resources", label: "🧰 Manage Resources" },
+      { path: "/manage-shelters", label: "🏕️ Manage Shelters" },
+      { path: "/manage-volunteers", label: "🤝 Manage Volunteers" },
       { path: "/map", label: "🗺️ Live Map" },
     ];
   }
