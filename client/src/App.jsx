@@ -16,6 +16,10 @@ import Alerts from "./pages/Alerts";
 import Volunteers from "./pages/Volunteers";
 import Profile from "./pages/Profile";
 import AdminLogin from "./pages/admin/AdminLogin";
+import ManageAlerts from "./pages/admin/ManageAlerts";
+import ManageResources from "./pages/admin/ManageResources";
+import ManageShelters from "./pages/admin/ManageShelters";
+import ManageVolunteers from "./pages/admin/ManageVolunteers";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -144,6 +148,41 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-alerts"
+          element={
+            <ProtectedRoute>
+              <ManageAlerts />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/manage-resources"
+          element={
+            <ProtectedRoute>
+              <ManageResources />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/manage-shelters"
+          element={
+            <ProtectedRoute>
+              <ManageShelters />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/manage-volunteers"
+          element={
+            <ProtectedRoute>
+              <ManageVolunteers />
             </ProtectedRoute>
           }
         />
